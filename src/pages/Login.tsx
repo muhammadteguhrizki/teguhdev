@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import "./Login.css";
+import { getImagePath } from "../utils/path";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ export default function Login() {
         <div className="login-brand">
           <div className="login-logo">
             <img
-              src="/img/teguhdev_color.png"
+              src={getImagePath("/img/teguhdev_color.png")}
               alt="Teguh Dev"
               className="brand-logo"
             />

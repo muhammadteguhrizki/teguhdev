@@ -1,17 +1,19 @@
+import { getImagePath } from "../utils/path";
+
 const projects = [
   {
     category: "COMPANY PROFILE",
     title: "Website KSP Marison Pasi Jaya",
     description:
       "Website company profile koperasi dengan CMS, blog, layanan, dan jaringan kantor.",
-    image: "/img/projects/ksp-marison.png",
+    image: getImagePath("/img/projects/ksp-marison.png"),
     tech: ["CodeIgniter", "PHP", "Bootstrap", "DataTables", "JQuery", "MySQL"],
   },
   {
     category: "COMPANY PROFILE",
     title: "Website PT Togi Cahaya Cemerlang",
     description: "Website company profile perusahaan finance.",
-    image: "/img/projects/tcc.png",
+    image: getImagePath("/img/projects/tcc.png"),
     tech: ["CodeIgniter", "PHP", "DataTables", "JQuery", "MySQL"],
   },
   {
@@ -19,7 +21,7 @@ const projects = [
     title: "Website Bank Hariarta",
     description:
       "Website company profile bank BPR dengan standarisasi Otoritas Jasa Keuangan.",
-    image: "/img/projects/bank-hariarta.png",
+    image: getImagePath("/img/projects/bank-hariarta.png"),
     tech: ["CodeIgniter", "PHP", "JavaScript", "DataTables", "JQuery", "MySQL"],
   },
 ];

@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
 import "./InvoicePreview.css";
+import { getImagePath } from "../../utils/path";
 
 interface InvoiceItem {
   id: number;
@@ -160,7 +161,7 @@ export default function InvoicePreview({ data }: InvoicePreviewProps) {
         <header className="invoice-header">
           <div className="brand">
             <img
-              src="/img/teguhdev_color.png"
+              src={getImagePath("/img/teguhdev_color.png")}
               alt="Teguh Dev"
               className="brand-logo"
             />

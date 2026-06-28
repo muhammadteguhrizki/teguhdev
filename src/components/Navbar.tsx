@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { getImagePath } from "../utils/path";
 // import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
@@ -15,7 +16,7 @@ export default function Navbar() {
       <div className="container navbar-content">
         <Link to="/" className="brand" onClick={closeMenu}>
           <img
-            src="/img/teguhdev_color.png"
+            src={getImagePath("/img/teguhdev_color.png")}
             alt="Teguh Dev"
             className="brand-logo"
           />
