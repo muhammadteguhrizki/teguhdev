@@ -77,8 +77,8 @@ export default function Home() {
               <Database size={30} />
               <h3>Database System</h3>
               <p>
-                Perancangan database MySQL untuk transaksi, laporan, nominatif
-                data, dan sistem internal.
+                Perancangan database, laporan, nominatif data, dan sistem
+                internal.
               </p>
             </div>
 
