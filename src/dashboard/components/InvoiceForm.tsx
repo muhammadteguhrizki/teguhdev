@@ -26,8 +26,23 @@ interface InvoiceData {
   accountName: string;
   discount: number;
   tax: number;
+  dpAmount: number;
   status: string;
 }
+
+const getNotesByStatus = (status: string): string => {
+  switch (status) {
+    case "lunas":
+      return "Terima kasih telah melakukan pembayaran dan mempercayakan kebutuhan digital Anda kepada TeguhDev. Invoice ini telah dinyatakan lunas.";
+
+    case "penawaran":
+      return "Terima kasih telah mempercayakan kebutuhan digital Anda kepada TeguhDev. Penawaran ini berlaku sesuai dengan rincian layanan yang tercantum di atas. Perubahan atau penambahan kebutuhan di luar ruang lingkup layanan dapat disesuaikan berdasarkan kesepakatan.";
+
+    case "status_invoice":
+    default:
+      return "Terima kasih telah mempercayakan kebutuhan digital Anda kepada TeguhDev. Pembayaran dapat dilakukan sebelum tanggal jatuh tempo yang tercantum pada invoice.";
+  }
+};
 
 export default function InvoiceForm() {
   const [showPreview, setShowPreview] = useState(false);
@@ -42,13 +57,13 @@ export default function InvoiceForm() {
     clientPhone: "",
     clientAddress: "",
     items: [{ id: 1, description: "", detail: "", qty: 1, price: 0 }],
-    notes:
-      "Terima kasih telah mempercayakan kebutuhan digital Anda kepada Teguh Dev. Pembayaran dapat dilakukan sebelum tanggal jatuh tempo.",
+    notes: "",
     bankName: "Bank BCA",
     accountNumber: "0801066207",
     accountName: "Muhammad Teguh Rizkiono",
     discount: 0,
     tax: 0,
+    dpAmount: 0,
     status: "status_invoice",
   });
 
@@ -220,7 +235,7 @@ export default function InvoiceForm() {
               <label>Nomor Telepon</label>
               <input
                 type="text"
-                placeholder="+62 812-3456-7890"
+                placeholder="+62 878-2540-0060"
                 value={invoiceData.clientPhone}
                 onChange={(e) =>
                   setInvoiceData({
@@ -419,6 +434,22 @@ export default function InvoiceForm() {
                 <p className="total-summary">
                   Total: Rp {calculateTotal().total.toLocaleString("id-ID")}
                 </p>
+                {invoiceData.status === "dp" && (
+                  <>
+                    <p>
+                      Sudah Dibayar (DP): Rp{" "}
+                      {invoiceData.dpAmount.toLocaleString("id-ID")}
+                    </p>
+
+                    <p className="total-summary">
+                      Sisa Pembayaran: Rp{" "}
+                      {Math.max(
+                        calculateTotal().total - invoiceData.dpAmount,
+                        0,
+                      ).toLocaleString("id-ID")}
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -431,9 +462,16 @@ export default function InvoiceForm() {
               <label>Pilih Status</label>
               <select
                 value={invoiceData.status}
-                onChange={(e) =>
-                  setInvoiceData({ ...invoiceData, status: e.target.value })
-                }
+                onChange={(e) => {
+                  const status = e.target.value;
+
+                  setInvoiceData({
+                    ...invoiceData,
+                    status,
+                    notes: getNotesByStatus(status),
+                    dpAmount: status === "dp" ? invoiceData.dpAmount : 0,
+                  });
+                }}
                 className="form-select"
                 style={{
                   padding: "10px 14px",
@@ -447,9 +485,44 @@ export default function InvoiceForm() {
                 }}
               >
                 <option value="status_invoice">Belum Bayar</option>
+                <option value="dp">Sudah DP</option>
                 <option value="lunas">Lunas</option>
                 <option value="penawaran">Penawaran</option>
               </select>
+
+              {invoiceData.status === "dp" && (
+                <div className="form-group" style={{ marginTop: "15px" }}>
+                  <label>Nominal DP</label>
+
+                  <input
+                    type="number"
+                    min="0"
+                    value={invoiceData.dpAmount}
+                    onChange={(e) => {
+                      const total = calculateTotal().total;
+                      const value = parseFloat(e.target.value) || 0;
+
+                      setInvoiceData({
+                        ...invoiceData,
+                        dpAmount: Math.min(value, total),
+                      });
+                    }}
+                    placeholder="Masukkan nominal DP"
+                  />
+
+                  <small
+                    style={{
+                      display: "block",
+                      marginTop: "6px",
+                      color: "#777",
+                      fontSize: "11px",
+                    }}
+                  >
+                    Maksimal DP: Rp{" "}
+                    {calculateTotal().total.toLocaleString("id-ID")}
+                  </small>
+                </div>
+              )}
             </div>
           </div>
         </div>

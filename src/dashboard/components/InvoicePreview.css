@@ -131,6 +131,16 @@
   display: inline-block;
 }
 
+.status-dp {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  background: #dbeafe;
+  padding: 4px 14px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
 .status-quotation {
   color: #ca8a04;
   font-size: 12px;
@@ -314,7 +324,13 @@
     padding: 28px 20px;
   }
 
-  .invoice-preview .invoice-header,
+  .invoice-preview .invoice-header {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
   .invoice-preview .invoice-info,
   .invoice-preview .invoice-bottom,
   .invoice-preview .invoice-footer {
@@ -334,8 +350,8 @@
   }
 
   .invoice-preview .brand-logo {
-    width: 70px;
-    height: 60px;
+    width: 140px;
+    height: 85px;
   }
 
   .invoice-preview .brand-text h1 {
