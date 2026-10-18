@@ -2,6 +2,23 @@ import { getImagePath } from "../utils/path";
 
 const projects = [
   {
+    category: "APLIKASI ABSENSI",
+    title: "Absensi Karyawan QR Code GPS PT Togi Cahaya Cemerlang",
+    description:
+      "Aplikasi absensi karyawan berbasis web menggunakan pemindaian QR Code GPS untuk mencatat kehadiran dan kepulangan karyawan, memantau status absensi, serta mengelola data karyawan melalui dashboard administrator secara terintegrasi.",
+    image: getImagePath("/img/projects/absensi-barcode.png"),
+    tech: [
+      "Laravel 12",
+      "Tailwind CSS",
+      "Laravel Jetstream",
+      "Endroid QR Code",
+      "Leaflet.js",
+      "OpenStreetMap",
+      "MySQL/MariaDB",
+    ],
+  },
+
+  {
     category: "PORTAL APLIKAS INTERNAL",
     title: "Portal PT Togi Cahaya Cemerlang",
     description:
