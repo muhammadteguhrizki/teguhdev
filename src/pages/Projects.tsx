@@ -117,7 +117,7 @@ const projects = [
   },
   {
     category: "PORTAL APLIKAS INTERNAL",
-    title: "Portal Bank Hariarta",
+    title: "Portal Smart HS Bank Hariarta",
     description:
       "Portal berbasis web untuk mendukung proses bisnis BPR yang terintegrasi secara real-time dengan Core Banking System (CBS). Sistem menyediakan monitoring tabungan, kredit, dan deposito, sinkronisasi data nasabah, transaksi pinjaman, pelaporan terpusat, serta berbagai fitur operasional untuk meningkatkan efisiensi dan akurasi pengelolaan data.",
     image: getImagePath("/img/projects/kredit-hs.png"),
@@ -134,7 +134,7 @@ const projects = [
   },
   {
     category: "SISTEM OPERASIONAL",
-    title: "Portal Operasional Bank Hariarta",
+    title: "Portal Ops Bank Hariarta",
     description:
       "Portal berbasis web untuk mengelola operasional bisnis BPR, meliputi pengelolaan data operasional, pengarsipan ribuan dokumen nasabah secara digital, serta monitoring data untuk mendukung efisiensi proses operasional.",
     image: getImagePath("/img/projects/portal-ops.png"),
