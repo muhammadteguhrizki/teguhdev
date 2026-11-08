@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
 import { getImagePath } from "../utils/path";
 
 const projects = [
+  {
+    category: "APLIKASI KEUANGAN",
+    title: "SaveMon - Aplikasi Manajemen Keuangan Pribadi Berbasis Android",
+    description:
+      "Aplikasi manajemen keuangan pribadi berbasis mobile untuk membantu pengguna mencatat pemasukan dan pengeluaran, mengelola anggaran, memantau arus kas, serta melihat ringkasan kondisi keuangan. Dilengkapi penyimpanan data lokal menggunakan SQLite, visualisasi laporan keuangan, kategori transaksi, dan dukungan tema terang maupun gelap untuk memberikan pengalaman pengelolaan keuangan yang praktis dan terorganisir.",
+    image: getImagePath("/img/projects/savemon.jpeg"),
+    tech: [
+      "React Native",
+      "Expo SDK",
+      "TypeScript",
+      "Expo Router",
+      "Expo Notifications",
+      "NativeWind",
+      "SQLite",
+    ],
+  },
   {
     category: "APLIKASI ABSENSI",
     title: "Absensi Karyawan QR Code GPS Berbasis Web dan Android",
@@ -32,6 +49,7 @@ const projects = [
       "JavaScript",
       "JQuery",
       "DataTables",
+      "Wablas API",
       "MySQL",
     ],
   },
@@ -64,7 +82,15 @@ const projects = [
     description:
       "Website company profile bank BPR dengan standarisasi Otoritas Jasa Keuangan.",
     image: getImagePath("/img/projects/bank-hariarta.png"),
-    tech: ["CodeIgniter", "PHP", "JavaScript", "DataTables", "JQuery", "MySQL"],
+    tech: [
+      "CodeIgniter",
+      "PHP",
+      "JavaScript",
+      "DataTables",
+      "Google Sheets",
+      "JQuery",
+      "MySQL",
+    ],
   },
   {
     category: "FINANCE",
@@ -112,7 +138,6 @@ const projects = [
       "JQuery",
       "DataTables",
       "MySQL",
-      "REST API",
     ],
   },
   {
@@ -129,7 +154,6 @@ const projects = [
       "JQuery",
       "DataTables",
       "MySQL",
-      "REST API",
     ],
   },
   {
@@ -146,12 +170,37 @@ const projects = [
       "JQuery",
       "DataTables",
       "MySQL",
-      "REST API",
+      "API e-KTP Reader",
     ],
   },
 ];
 
 export default function Projects() {
+  const [selectedImage, setSelectedImage] = useState<
+    (typeof projects)[number] | null
+  >(null);
+
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedImage]);
+
   return (
     <section className="section project-section page-section">
       <div className="container">
@@ -166,15 +215,34 @@ export default function Projects() {
               className="project-card"
               key={project.title}
               data-aos="fade-up"
-              data-aos-duration="800"
+              data-aos-duration="700"
               data-aos-delay={index * 250}
             >
-              <div className="project-image">
+              {/* Project Image */}
+              <div
+                className="project-image"
+                onClick={() => setSelectedImage(project)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setSelectedImage(project);
+                  }
+                }}
+                aria-label={`Perbesar gambar ${project.title}`}
+              >
                 <img src={project.image} alt={project.title} />
+
+                <div className="image-zoom-overlay">
+                  <span>+</span>
+                </div>
               </div>
 
+              {/* Project Content */}
               <div className="project-content">
                 <span className="project-category">{project.category}</span>
+
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
 
@@ -188,6 +256,29 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Image Lightbox */}
+      {selectedImage && (
+        <div className="image-lightbox" onClick={() => setSelectedImage(null)}>
+          <button
+            type="button"
+            className="lightbox-close"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Tutup preview"
+          >
+            &times;
+          </button>
+
+          <div
+            className="lightbox-content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img src={selectedImage.image} alt={selectedImage.title} />
+
+            <p>{selectedImage.title}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
