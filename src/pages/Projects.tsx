@@ -70,7 +70,7 @@ const projects = [
   },
   {
     category: "AUTOMASI PERBANKAN",
-    title: "Mandiri Kopra & Permata Auto Debit",
+    title: "Tools Mandiri Kopra & Permata Auto Debit",
     description:
       "Aplikasi desktop berbasis Python untuk mengotomatisasi proses autodebit saldo nasabah melalui platform Mandiri Kopra dan Permata Bank. Sistem mendukung konversi data transaksi, validasi data, pembuatan file sesuai format bank, serta mempercepat proses transaksi massal dengan meminimalkan kesalahan manual.",
     image: getImagePath("/img/projects/kopra-converter.png"),
@@ -123,6 +123,14 @@ const projects = [
       "MySQL",
       "Bluetooth Thermal Printer",
     ],
+  },
+  {
+    category: "SISTEM KREDIT",
+    title: "Tools Tarik Data NPL",
+    description:
+      "Aplikasi berbasis web Bank Hariarta untuk manarik data NPL dari Core Banking System (CBS).",
+    image: getImagePath("/img/projects/tarik-data-npl.jpeg"),
+    tech: ["PHP", "PHPExcel"],
   },
   {
     category: "SISTEM KREDIT",
