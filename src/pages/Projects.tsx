@@ -3,20 +3,35 @@ import { getImagePath } from "../utils/path";
 
 const projects = [
   {
-    category: "APLIKASI KEUANGAN",
-    title: "SaveMon - Aplikasi Manajemen Keuangan Pribadi Berbasis Android",
+    category: "COMPANY PROFILE",
+    title: "Website Bank Hariarta",
     description:
-      "Aplikasi manajemen keuangan pribadi berbasis mobile untuk membantu pengguna mencatat pemasukan dan pengeluaran, mengelola anggaran, memantau arus kas, serta melihat ringkasan kondisi keuangan. Dilengkapi penyimpanan data lokal menggunakan SQLite, visualisasi laporan keuangan, kategori transaksi, dan dukungan tema terang maupun gelap untuk memberikan pengalaman pengelolaan keuangan yang praktis dan terorganisir.",
-    image: getImagePath("/img/projects/savemon.jpeg"),
+      "Website company profile bank BPR dengan standarisasi Otoritas Jasa Keuangan.",
+    image: getImagePath("/img/projects/bank-hariarta.png"),
     tech: [
-      "React Native",
-      "Expo SDK",
-      "TypeScript",
-      "Expo Router",
-      "Expo Notifications",
-      "NativeWind",
-      "SQLite",
+      "CodeIgniter",
+      "PHP",
+      "JavaScript",
+      "DataTables",
+      "Google Sheets",
+      "JQuery",
+      "MySQL",
     ],
+  },
+  {
+    category: "COMPANY PROFILE",
+    title: "Website KSP Marison Pasi Jaya",
+    description:
+      "Website company profile koperasi dengan CMS, blog, layanan, dan jaringan kantor.",
+    image: getImagePath("/img/projects/ksp-marison.png"),
+    tech: ["CodeIgniter", "PHP", "Bootstrap", "DataTables", "JQuery", "MySQL"],
+  },
+  {
+    category: "COMPANY PROFILE",
+    title: "Website PT Togi Cahaya Cemerlang",
+    description: "Website company profile perusahaan finance.",
+    image: getImagePath("/img/projects/tcc.png"),
+    tech: ["CodeIgniter", "PHP", "DataTables", "JQuery", "MySQL"],
   },
   {
     category: "APLIKASI ABSENSI",
@@ -54,60 +69,6 @@ const projects = [
     ],
   },
   {
-    category: "COMPANY PROFILE",
-    title: "Website KSP Marison Pasi Jaya",
-    description:
-      "Website company profile koperasi dengan CMS, blog, layanan, dan jaringan kantor.",
-    image: getImagePath("/img/projects/ksp-marison.png"),
-    tech: ["CodeIgniter", "PHP", "Bootstrap", "DataTables", "JQuery", "MySQL"],
-  },
-  {
-    category: "COMPANY PROFILE",
-    title: "Website PT Togi Cahaya Cemerlang",
-    description: "Website company profile perusahaan finance.",
-    image: getImagePath("/img/projects/tcc.png"),
-    tech: ["CodeIgniter", "PHP", "DataTables", "JQuery", "MySQL"],
-  },
-  {
-    category: "AUTOMASI PERBANKAN",
-    title: "Tools Mandiri Kopra & Permata Auto Debit",
-    description:
-      "Aplikasi desktop berbasis Python untuk mengotomatisasi proses autodebit saldo nasabah melalui platform Mandiri Kopra dan Permata Bank. Sistem mendukung konversi data transaksi, validasi data, pembuatan file sesuai format bank, serta mempercepat proses transaksi massal dengan meminimalkan kesalahan manual.",
-    image: getImagePath("/img/projects/kopra-converter.png"),
-    tech: ["Python", "Tkinter", "Pandas", "OpenPyXL", "PyInstaller"],
-  },
-  {
-    category: "COMPANY PROFILE",
-    title: "Website Bank Hariarta",
-    description:
-      "Website company profile bank BPR dengan standarisasi Otoritas Jasa Keuangan.",
-    image: getImagePath("/img/projects/bank-hariarta.png"),
-    tech: [
-      "CodeIgniter",
-      "PHP",
-      "JavaScript",
-      "DataTables",
-      "Google Sheets",
-      "JQuery",
-      "MySQL",
-    ],
-  },
-  {
-    category: "FINANCE",
-    title: "H-Fund Digital Crowd Funding Platform",
-    description:
-      "Aplikasi web untuk pengelolaan deposito agen secara digital Bank Hariarta, meliputi manajemen agen, manajemen nasabah, transaksi deposito, pembuatan e-bilyet, invoice pembayaran fee agen, notifikasi via email, dan pelaporan nominatif.",
-    image: getImagePath("/img/projects/h-fund-1.png"),
-    tech: [
-      "CodeIgniter",
-      "PHP",
-      "AlpineJS",
-      "Tailwind CSS",
-      "JavaScript",
-      "MySQL",
-    ],
-  },
-  {
     category: "SISTEM KOPERASI",
     title: "Aplikasi Setoran & Penarikan KSP SMR",
     description:
@@ -122,6 +83,29 @@ const projects = [
       "DataTables",
       "MySQL",
       "Bluetooth Thermal Printer",
+    ],
+  },
+  {
+    category: "AUTOMASI PERBANKAN",
+    title: "Tools Mandiri Kopra & Permata Auto Debit",
+    description:
+      "Aplikasi desktop berbasis Python untuk mengotomatisasi proses autodebit saldo nasabah melalui platform Mandiri Kopra dan Permata Bank. Sistem mendukung konversi data transaksi, validasi data, pembuatan file sesuai format bank, serta mempercepat proses transaksi massal dengan meminimalkan kesalahan manual.",
+    image: getImagePath("/img/projects/kopra-converter.png"),
+    tech: ["Python", "Tkinter", "Pandas", "OpenPyXL", "PyInstaller"],
+  },
+  {
+    category: "FINANCE",
+    title: "H-Fund Digital Crowd Funding Platform",
+    description:
+      "Aplikasi web untuk pengelolaan deposito agen secara digital Bank Hariarta, meliputi manajemen agen, manajemen nasabah, transaksi deposito, pembuatan e-bilyet, invoice pembayaran fee agen, notifikasi via email, dan pelaporan nominatif.",
+    image: getImagePath("/img/projects/h-fund-1.png"),
+    tech: [
+      "CodeIgniter",
+      "PHP",
+      "AlpineJS",
+      "Tailwind CSS",
+      "JavaScript",
+      "MySQL",
     ],
   },
   {
@@ -179,6 +163,22 @@ const projects = [
       "DataTables",
       "MySQL",
       "API e-KTP Reader",
+    ],
+  },
+  {
+    category: "APLIKASI KEUANGAN",
+    title: "SaveMon - Aplikasi Manajemen Keuangan Pribadi Berbasis Android",
+    description:
+      "Aplikasi manajemen keuangan pribadi berbasis mobile untuk membantu pengguna mencatat pemasukan dan pengeluaran, mengelola anggaran, memantau arus kas, serta melihat ringkasan kondisi keuangan. Dilengkapi penyimpanan data lokal menggunakan SQLite, visualisasi laporan keuangan, kategori transaksi, dan dukungan tema terang maupun gelap untuk memberikan pengalaman pengelolaan keuangan yang praktis dan terorganisir.",
+    image: getImagePath("/img/projects/savemon.jpeg"),
+    tech: [
+      "React Native",
+      "Expo SDK",
+      "TypeScript",
+      "Expo Router",
+      "Expo Notifications",
+      "NativeWind",
+      "SQLite",
     ],
   },
 ];
